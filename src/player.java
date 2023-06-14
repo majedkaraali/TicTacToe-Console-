@@ -7,7 +7,6 @@ public class player {
 	public player() {
 		player_ch='-';
 		 name="Null";
-		 System.out.println("Test");
 
 	}
 	
