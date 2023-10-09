@@ -6,6 +6,9 @@ public class play_state {
 	private static Scanner input;
 	public static  boolean quit=false;
 	
+
+
+	
 	public static void main(String args[]) {
 		System.out.print("\nGame By Majed");
 		input=new Scanner(System.in);
