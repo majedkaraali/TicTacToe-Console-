@@ -9,6 +9,7 @@ public class table {
 	private ArrayList<Integer> p2_list = new ArrayList<>();
 	public String winner_name;
 	public boolean winner;
+	private int round=0;
 
 	
 	public String get_winner_name() {
@@ -41,26 +42,29 @@ public class table {
 		 }
 
 
-	public void place(int z,char x) {
+	public void place(int z,char ch) {
 	
 		if (stic.contains(z)) {
 			int r=stic.indexOf(z);
 			stic.remove(r);
 			switch (z) {
-			case 7 : {x1=x; break;}
-			case 8 : {x2=x; break;}
-			case 9 : {x3=x; break;}
-			case 4 : {x4=x; break;}
-			case 5 : {x5=x; break;}
-			case 6 : {x6=x; break;}
-			case 1 : {x7=x; break;}
-			case 2 : {x8=x; break;}
-			case 3 : {x9=x; break;}
+			case 7 : {x1=ch; break;}
+			case 8 : {x2=ch; break;}
+			case 9 : {x3=ch; break;}
+			case 4 : {x4=ch; break;}
+			case 5 : {x5=ch; break;}
+			case 6 : {x6=ch; break;}
+			case 1 : {x7=ch; break;}
+			case 2 : {x8=ch; break;}
+			case 3 : {x9=ch; break;}
 			default: {System.out.println("Wrong button"); break;}}
-			append(z,x);
-			if (x==play_state.p1.get_ch()) {play_state.p_turn=play_state.p2.get_name();}
-			if (x==play_state.p2.get_ch()) {play_state.p_turn=play_state.p1.get_name();}
-					}
+			append(z,ch);
+			
+			if (ch==play_state.p1.get_ch()) {play_state.p_turn=play_state.p2.get_name();}
+			if (ch==play_state.p2.get_ch()) {play_state.p_turn=play_state.p1.get_name();}
+			this.round+=1;
+			}
+			
 		else
 			System.out.println("\nBlocked By another Player , Please Re-Entter");
 			update();
@@ -91,7 +95,13 @@ public class table {
 		  
 		    	 winner_name=play_state.p2.get_name();
 		    	 winner=true;}
+
+			if (this.round>=9){
+				winner_name="No One , Tie";
+				winner=true;}
+
 		    }
+
 	}
 
 	
