@@ -4,6 +4,8 @@ public class player {
 	private String name;
 	
 	
+
+
 	public player() {
 		player_ch='-';
 		 name="Null";
